@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun fetchData() = with(viewModel) {
         getSeafoodList()
-        meal.observe(this@MainActivity, {
+        meal.observe(this@MainActivity) {
             mainAdapter = MainAdapter(it.meals) { meal ->
                 Toast.makeText(
                     this@MainActivity,
@@ -43,6 +43,6 @@ class MainActivity : AppCompatActivity() {
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 adapter = mainAdapter
             }
-        })
+        }
     }
 }
